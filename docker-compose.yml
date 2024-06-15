@@ -14,5 +14,6 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=Blitzcode1.
       - MYSQL_DATABASE=Blitzvideo
+    command: ['mysqld', '--default-authentication-plugin=mysql_native_password', '--skip-tls']
 volumes:
   mysqldata:
