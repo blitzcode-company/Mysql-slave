@@ -7,10 +7,11 @@ services:
     container_name: "mysql-slave"
     restart: unless-stopped
     ports:
-      - 3306:3306
+      - 3307:3306  # Asegúrate de usar un puerto diferente al del maestro, por ejemplo, 3307
     volumes:
       - mysqldata:/var/lib/mysql
       - ./my.cnf:/etc/mysql/my.cnf
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       - MYSQL_ROOT_PASSWORD=Blitzcode1.
       - MYSQL_DATABASE=Blitzvideo
