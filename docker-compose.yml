@@ -15,9 +15,3 @@ services:
       - MYSQL_USER=admin
       - MYSQL_DATABASE=Blitzvideo
       - MYSQL_PASSWORD=4adm1n.
-networks:
-  default:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 192.168.1.0/24
