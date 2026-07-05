@@ -27,6 +27,14 @@ fi
 echo "== 2. Ajustando permisos =="
 chmod 644 *.pem
 chmod 640 *-key.pem
+
+echo "== Ajustando dueño a uid 999 (usuario mysql dentro del contenedor) =="
+if chown -R 999:999 . 2>/dev/null; then
+  echo "chown a 999:999 aplicado correctamente."
+else
+  echo "No se pudo hacer chown (¿no sos root?). Aplicando chmod 644 a todo como fallback."
+  chmod 644 *.pem
+fi
 cd - > /dev/null
 
 echo "== 3. Verificando volumen SSL en docker-compose.yml =="
