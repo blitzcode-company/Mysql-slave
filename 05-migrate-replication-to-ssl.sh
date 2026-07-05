@@ -4,8 +4,8 @@ set -e
 # CORRER EN EL SLAVE (192.168.1.106)
 CONTAINER_NAME="mysql-slave"
 ROOT_PASSWORD="Blitzcode1."
-REPL_USER="repl"
-REPL_PASSWORD="Blitzcode1."
+REPL_USER="replication"
+REPL_PASSWORD="Repli2024."
 
 echo "== 1. Estado ANTES de migrar =="
 docker exec -i "${CONTAINER_NAME}" mysql -uroot -p"${ROOT_PASSWORD}" -e "SHOW REPLICA STATUS\G" \
