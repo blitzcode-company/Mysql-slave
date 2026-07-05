@@ -10,7 +10,7 @@ services:
       - ./mysqldata_slave:/var/lib/mysql
       - ./my.cnf:/etc/my.cnf
       - ./init-slave.sql:/docker-entrypoint-initdb.d/init-slave.sql
-      - ./mysqldata_slave/ssl:/etc/mysql/ssl:ro  
+      - ./mysql-ssl:/etc/mysql/ssl:ro
     environment:
       - MYSQL_ROOT_PASSWORD=Blitzcode1.
       - MYSQL_USER=admin
