@@ -2,7 +2,7 @@
 set -e
 
 # CORRER EN EL SLAVE (192.168.1.106)
-PROJECT_DIR="/home/mysql-slave"
+PROJECT_DIR="/home/Mysql-slave"
 SSL_DIR="${PROJECT_DIR}/mysql/ssl"
 COMPOSE_FILE="${PROJECT_DIR}/docker-compose.yml"
 MYCNF_FILE="${PROJECT_DIR}/my.cnf"
