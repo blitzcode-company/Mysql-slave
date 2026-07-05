@@ -3,7 +3,7 @@ set -e
 
 # CORRER EN EL SLAVE (192.168.1.106)
 PROJECT_DIR="/home/Mysql-slave"
-SSL_DIR="${PROJECT_DIR}/mysql/ssl"
+SSL_DIR="${PROJECT_DIR}/mysql-ssl"
 COMPOSE_FILE="${PROJECT_DIR}/docker-compose.yml"
 MYCNF_FILE="${PROJECT_DIR}/my.cnf"
 
@@ -30,12 +30,12 @@ chmod 640 *-key.pem
 cd - > /dev/null
 
 echo "== 3. Verificando volumen SSL en docker-compose.yml =="
-if grep -q "mysql/ssl:/etc/mysql/ssl" "${COMPOSE_FILE}"; then
+if grep -q "mysql-ssl:/etc/mysql/ssl" "${COMPOSE_FILE}"; then
   echo "El volumen SSL ya está en ${COMPOSE_FILE}, no se toca."
 else
   echo ""
   echo "ATENCION: agregá manualmente esta línea dentro de 'volumes:' del servicio en ${COMPOSE_FILE}:"
-  echo "      - ./mysql/ssl:/etc/mysql/ssl:ro"
+  echo "      - ./mysql-ssl:/etc/mysql/ssl:ro"
   echo ""
 fi
 
